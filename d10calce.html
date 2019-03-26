@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calculator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="d10calcestyles.css">
+  <link rel="stylesheet" href="d10animation.css">
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+<div class="col-md-4"></div>
+ <div class="col-md-4 wholediv">
+  <h2>Calculator</h2>
+  <!--<div class="col-md-4"></div>-->
+  <form class="calceform">
+  <div class="row">
+    
+    <div class="col-md-4">
+     <div class="form-group">
+      <input type="text" id="result"  style="text-align: center;background-image: linear-gradient(-90deg, red, #a281ce); color: #00e7ff; border: 1px solid #a9ff00;" placeholder="Result Is:" class="form-control ouputDisplay1" onkeypress= "return(event.charCode >= 48 && event.charCode<= 57 && event.charCode=42 && event.charCode=43 && event.charCode=45 && event.charCode=47)">
+      <input type="text" id="inputval" placeholder="enter the number" class="form-control ouputDisplay2" onkeypress= "return(event.charCode >= 48 && event.charCode<= 57 && event.charCode=42 && event.charCode=43 && event.charCode=45 && event.charCode=47)" style="box-shadow: 0px -3px black; margin-top: -10%; width: 90%; border: 1px solid #a9ff00; border-top: none; text-align: center; color: #00e7ff; background-image: linear-gradient(-90deg, red, #a281ce);"><!--   background: #43ca4ecf;   -->
+      </div>
+      </div>
+      <!--<div class="col-md-4"></div>-->
+  </div>
+  <div class="inputbuttons">
+  <div class="row">
+ <!-- <div class="col-md-4"></div>-->
+  <div class="col-md-4">
+  <button type="button" id="percentage" class="btn btn-outline-dark" onclick="dis('%')">%</button>
+      <button type="button" id="xsquare" class="btn btn-outline-dark" onclick="power()">x<sup>2</sup></button>
+  <button type="button" id="sqrt" class="btn btn-outline-dark" onclick="sqroot()">√</button>
+  <button type="button" id="1divx" class="btn btn-outline-dark" onclick="dividebyX()">1/x</button><br>
+      </div></div>
+      
+      <div class="row">
+      <!--<div class="col-md-4"></div>-->
+      <div class="col-md-4">
+  <button type="reset" id="clear" style="width: 43%; margin-left: 4px;" class="btn btn-outline-dark" >Clr</button>
+  <button type="button" id="lastcut" class="btn btn-outline-dark" onclick="dis('')">X</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('/')">/</button>
+  <!--<button type="button" class="btn btn-outline-dark" onclick="dis('1')">1</button>--><br>
+          </div></div>
+          
+          <div class="row">
+      <!--<div class="col-md-4"></div>-->
+      <div class="col-md-4">
+  <button type="button" class="btn btn-outline-dark" onclick="dis('1')">1</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('2')">2</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('3')">3</button>
+  <button type="button" id="multiply" class="btn btn-outline-dark" onclick="dis('*')">*</button><br>
+          </div></div>
+          <div class="row">
+      <!--<div class="col-md-4"></div>-->
+      <div class="col-md-4">
+  <button type="button" class="btn btn-outline-dark" onclick="dis('4')">4</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('5')">5</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('6')">6</button>
+  <button type="button" id="subtract" class="btn btn-outline-dark" onclick="dis('-')">-</button><br>
+          </div></div>
+          
+  <div class="row">
+  <!--<div class="col-md-4"></div>-->
+  <div class="col-md-4">
+  <button type="button" class="btn btn-outline-dark" onclick="dis('7')">7</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('8')">8</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('9')">9</button>
+  <button type="button" id="addition" class="btn btn-outline-dark" onclick="dis('+')">+</button><br>
+      </div></div>
+      
+  <div class="row">
+  <!--<div class="col-md-4"></div>-->
+  <div class="col-md-4">
+  <button type="button" class="btn btn-outline-dark" onclick="dis('0')">0</button>
+  <button type="button" class="btn btn-outline-dark" onclick="dis('.')">.</button>
+  <button type="button" onclick="solve()" style="width: 43%; margin-left: 1px;" class="btn btn-outline-dark">=</button>
+  <!--<button type="button" class="btn btn-outline-dark" onclick="dis('1')">1</button>-->
+      </div></div>
+    </div>
+    </form>
+     </div>
+     </div>
+      </div>
+    </body>
+    <script>
+        function dis(val) { 
+			document.getElementById("inputval").value+=val;
+		} 
+           /*  Code for evaluation   */
+        	function solve() { 
+            
+			let x = document.getElementById("inputval").value;
+			let y = eval(x) 
+            
+			document.getElementById("result").value = y;
+              
+		} 
+        
+        /*  code for pressing the Enter button  */
+        $("#inputval").keypress(function(e){
+            $("#inputval").val() != "";
+        if(e.keyCode == 13){
+                solve()
+            }
+        });
+        
+        /*  Code for cutting the last int  */
+        $('#lastcut').on('click',function () { 
+    //get the input's value
+    var textVal = $('#inputval').val();
+    //set the input's value
+    $('#inputval').val(textVal.substring(0,textVal.length - 1));
+});
+    
+      /*   code for Suaring the input  */
+        function power() {
+     var pwr = document.getElementById("inputval").value;     
+    document.getElementById("result").value = Math.pow(pwr, 2);
+}
+ 
+        function sqroot() {
+     var sq = document.getElementById("inputval").value;     
+            document.getElementById("result").value = Math.sqrt(sq);
+}
+        
+        function dividebyX() {
+     var divx = document.getElementById("inputval").value;     
+            document.getElementById("result").value = Math.sqrt(1/divx);
+}
+        
+        
+    </script>
+</html>

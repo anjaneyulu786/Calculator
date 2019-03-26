@@ -1,0 +1,65 @@
+body {
+    text-align: center;
+    background-color: black;
+    overflow: hidden;
+}
+h2 {
+    color: #0b246a;
+}
+
+.wholediv {
+    /*background-color: #93b822d1;*/
+    padding-bottom: 3%;
+    padding-top: 1%;
+    margin-top: 5%;
+    background-image: linear-gradient(-90deg, red, #a281ce);
+}
+
+.ouputDisplay1 {
+    padding: 17%;
+    /*background-color: #0e7272;*/
+    color: white;
+    font-size: 26px;
+    width: 90%;
+    /*margin-left: 0%;*/
+}
+/*  Its for the second Input display */
+/*.outputDisplay2 {
+    margin-top: -10%;
+    position: fixed;
+    color: white;
+    padding: 1% 0% 1% 7%;
+    font-size: 26px;
+    width: 90%;
+}*/
+
+.inputbuttons {
+    margin-left: -2%;
+}
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+    cursor: pointer;
+    width: 21%;
+    color: #33ff00;
+    padding: 3%;
+    margin-left: 1px;
+    margin-top: 1%;
+    border-left: none;
+    font-size: 20px;
+    font-weight: 725;
+    border-right: none;
+}
+
+[type=button]:not(:disabled):hover,
+[type=reset]:not(:disabled):hover,
+[type=submit]:not(:disabled):hover,
+button:not(:disabled):hover {
+    background-color: #7d841063;
+}
+
+.calceform {
+    width: 350%;
+}
